@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 var i = 0;
-while (i< 3) {
-        alert(i);
-        i++;
-        }
+while (i < 3) {
+    alert(i);
+    i++;
+}
