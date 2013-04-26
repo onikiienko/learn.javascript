@@ -6,4 +6,5 @@
  * To change this template use File | Settings | File Templates.
  */
 <script>
+    alert(10);
 </script>
