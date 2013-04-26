@@ -5,6 +5,8 @@
  * Time: 7:04 PM
  * To change this template use File | Settings | File Templates.
  */
-<script>
-    alert(10);
-</script>
+var i = 0;
+while (i< 3) {
+        alert(i);
+        i++;
+        }
