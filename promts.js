@@ -5,3 +5,5 @@
  * Time: 10:42 PM
  * To change this template use File | Settings | File Templates.
  */
+var name = prompt('your name is', '');
+alert(name);
