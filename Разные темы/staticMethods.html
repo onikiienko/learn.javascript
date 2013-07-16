@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script>
+        function Article() {
+            Article.created = new Date();
+            Article.count++;
+            // ... ваш код ...
+
+        }
+        Article.showStats = function(){
+            //alert('All: ' + this.count + ' , last date: ' + this.created);
+        }
+        Article.count = 0;
+
+        new Article();
+        new Article();
+
+        Article.showStats(); // Всего: 2, Последняя: (дата)
+
+        new Article();
+
+        Article.showStats(); // Всего: 3, Последняя: (дата)
+
+        var arr = ["Яблоко", "Апельсин"];
+
+        function outputItem(item, i, arr) {
+   //         alert(i + ": " + item + " (массив:" + arr + ")");
+        }
+
+        arr.forEach(outputItem);
+
+        var arr = [1, -1, 2, -2, 3];
+
+        function isPositive(number, i , arr) {
+            return number > 0;
+        }
+
+
+        var positiveArr = arr.filter(isPositive);
+
+
+        //alert(positiveArr); // 1,2,3
+
+        var arr = [1, 2, 3, 4];
+
+        function square(number) {
+            return number * number + 'aaaa';
+        }
+
+
+        var squaredArr = arr.map(square);
+
+
+
+
+        //alert(squaredArr); // 1, 4, 9, 16
+
+        var arr = [1, -1, 2, -2, 3];
+
+        function isPositive(number) {
+            return number > 0;
+        }
+
+
+        //alert( arr.every(isPositive) ); // false, не все положительные
+        //alert( arr.some(isPositive) ); // true, есть хоть одно положительное
+
+
+
+
+        var arr = ["a", "b", "c", "d"];
+
+        function join(previousStr, currentItem, i) {
+            // прибавляем к строке очередной элемент
+            var str = previousStr + currentItem;
+            alert(str); // a, ab, abc, abcd
+            return str;
+        }
+
+        var result = arr.reduce(join, ""); // abcd
+
+        //alert("result = " + result);
+
+
+        function sum(previousSum, currentItem) {
+            return previousSum + currentItem;
+        }
+
+        //alert( [1,2,3,4,5].reduce(sum) ); // 1+2+3+4+5 = 15
+
+        function join(previousStr, currentItem) {
+            return previousStr + currentItem;
+        }
+
+        //alert( ["a","b","c","d"].reduceRight(join) ); // dcba
+
+        var arr = [-2,-1,0,1];
+
+        function sums(previousSum, currentItem){
+            newArr.push(previousSum + currentItem);
+            return previousSum + currentItem;
+
+        }
+
+        var newArr = [];
+
+        function getSums(arr){
+            arr.reduce(sums, 0);
+            return newArr;
+        }
+
+        alert(getSums(arr)); // = [1, 1+2, 1+2+3, 1+..+4, 1+..+5] = [1, 3, 6, 10, 15]
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

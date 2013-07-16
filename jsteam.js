@@ -3,6 +3,7 @@
 // копирайт новый вставить
 // добавить аватарки(в дропбокс пока что можно)
 
+// Дима https://photos-4.dropbox.com/t/0/AABlW-KuFMGRdIEHPA5lZPwt4Q4RVh1qpPh0QMnznQ9gEw/12/60307438/jpeg/32x32/3/1370613600/0/2/y_c1e1b94e.jpg/IQGoJk0OHp5jc77fX4C1bkX5cMwe4YUiK3AtUK2dJQg?size=1024x768
 
 
 /**
