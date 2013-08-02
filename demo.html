@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset='utf-8'>
+
+    <title>DGEntrance demo</title>
+
+    <script src="http://maps2.bogdan.test/2.0/loader.js?pkg=full&mode=debug"></script>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+<div id="map" style="width: 100%; height: 300px; border: 1px solid #ccc;"></div>
+<input type = "text" value = "авто" id = "what" />
+<input type="button" value = "найти" id = "search"/>
+<div id = "buttons"></div>
+
+
+
+<script type="text/javascript">
+
+    var map,balloonHTML;
+
+
+
+    L.onLoad(function () {
+        var btns = [];
+        var entrances = {};
+        var searchButton = document.getElementById('search');
+        searchButton.onclick = function(){
+            $.getJSON('http://catalog.api.2gis.ru/2.0/search?what='+ document.getElementById('what').value +'&where=%D0%A3%D0%BB%D0%B0%D0%BD-%D0%A3%D0%B4%D1%8D&page_size=50&type=filial&key=1', function(data) {
+                var cont = document.getElementById('buttons');
+                cont.innerHTML = '';
+                for(var i = 0; i < data.result.data.length; i++){
+                    var el = document.createElement("input");
+                    el.id = data.result.data[i].id;
+                    el.type = 'button';
+                    el.value = data.result.data[i].name;
+                    cont.appendChild(el);
+                    el.onclick = addEntrance;
+                };
+            });
+        };
+
+        function addEntrance() {
+            var id = this.id;
+
+            $.getJSON('http://catalog.api.2gis.ru/2.0/details?id=' + id + '&type=filial&key=rudcgu3317&fields=data.geo.entrances',
+                    function(result){
+                        if(result.result.data[0].geo.entrances == null){
+                            document.getElementById(id).style.visibility = 'hidden';
+                        }
+                        else {
+                            var entrance = new L.DG.Entrance(result.result.data[0].geo.entrances[0]);
+                            entrance.addTo(map).show();
+                        }
+                    });
+        }
+
+
+
+
+
+
+
+        map = new L.Map('map', {
+
+            center: [54.980206086231, 82.898068362003],
+
+            zoom: 18
+
+        });
+
+
+
+
+
+    });
+
+
+</script>
+
+</body>
+
+</html>

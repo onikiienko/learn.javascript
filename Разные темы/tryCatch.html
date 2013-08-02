@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script>
+
+        function calc(){
+            var stat = prompt('введите выражение', '2*3+2');
+            if (eval(stat)) {alert(eval(stat))} else {throw new Error("Ошибка твою мать!")};
+        }
+
+        try{
+            calc();
+        } catch(e) {
+            alert("У вас тут ошибочка: " + e.message + " повторите ввод");
+            calc();
+        } finally{
+            calc();
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>
