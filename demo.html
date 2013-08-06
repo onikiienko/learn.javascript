@@ -53,23 +53,29 @@
             });
         };
 
-        function addEntrance() {
-            var id = this.id;
-
-            $.getJSON('http://catalog.api.2gis.ru/2.0/details?id=' + id + '&type=filial&key=rudcgu3317&fields=data.geo.entrances',
-                    function(result){
-                        if(result.result.data[0].geo.entrances == null){
-                            document.getElementById(id).style.visibility = 'hidden';
-                        }
-                        else {
-                            var entrance = new L.DG.Entrance(result.result.data[0].geo.entrances[0]);
-                            entrance.addTo(map).show();
-                        }
-                    });
+        function addEntrance() {            
+            $.getJSON(buildEntranceQuery(this.id), onEntranseResponse);
+        }    
+        
+        function onEntranseResponse(result) {
+            
+            var entranses = parseEntranseResponse(result);
+            
+            if(!entranses){
+                document.getElementById(id).style.visibility = 'hidden';        
+                return
+            } 
+            
+            new L.DG.Entrance(entranses[0]).addTo(map).show();        
         }
-
-
-
+        
+        function buildEntranseQuery(id) {
+            return 'http://catalog.api.2gis.ru/2.0/details?id=' + id + '&type=filial&key=rudcgu3317&fields=data.geo.entrances';
+        }
+        
+        function parseEntranseResponse(result) {
+            return result.result.data[0].geo.entrances
+        }
 
 
 
