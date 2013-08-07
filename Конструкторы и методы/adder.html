@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        function Adder(startingValue){
+            this.value = startingValue;
+
+            this.addInput = function() {
+                this.value += +prompt('add?', '');
+            };
+
+            this.showValue = function() {
+                console.log(this.value);
+            };
+        }
+        var adder = new Adder(1); // начальное значение 1
+        adder.addInput(); // прибавит ввод prompt к текущему значению
+        adder.addInput(); // прибавит ввод prompt к текущему значению
+        adder.showValue(); // выведет текущее значение
+    </script>
+</head>
+<body>
+
+</body>
+</html>

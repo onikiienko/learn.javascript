@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        function Summator() {
+            this.run = function() {
+                var a = +prompt('a?', '');
+                var b = +prompt('b?', '');
+                this.result = a + b;
+                this.sum();
+            };
+            this.sum = function() {
+                console.log('sum = ' + this.result);
+            }
+        }
+        var summator = new Summator();
+        summator.run();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

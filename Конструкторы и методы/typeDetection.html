@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+        function formatDate(date) {
+
+            var dd = date.getDate()
+            if ( dd < 10 ) dd = '0' + dd;
+
+            var mm = date.getMonth()+1
+            if ( mm < 10 ) mm = '0' + mm;
+
+            var yy = (date.getFullYear()) % 100;
+            if ( yy < 10 ) yy = '0' + yy;
+
+            return dd+'.'+mm+'.'+yy;
+        }
+
+        function outputDate(date) {
+
+            if({}.toString.call(date) == '[object String]'){
+                console.log(date.slice(8,10) + '.' + date.slice(5,7) + '.' + date.slice(2,4));
+            };
+            if(typeof date == 'number'){
+                var d = new Date(0,0,0);
+                d.setMilliseconds(date);
+                console.log( formatDate(d));
+            };
+            if(date.splice){
+                var d = new Date(date[0], date[1], date[2])
+                //console.log(d);
+                console.log( formatDate(d));
+            }
+            if(date.getTime){
+                //console.log(date);
+                console.log(formatDate(date));
+            }
+            return;
+        }
+        outputDate( '2011-10-02' );  // 02.10.11
+        outputDate( 1234567890 );  // 14.02.09
+        outputDate( [2000,0,1] ); // 01.01.00
+        outputDate( new Date(2000,0,1) ); // 01.01.00
+    </script>
+</head>
+<body>
+
+</body>
+</html>

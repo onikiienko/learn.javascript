@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script>
+        function work(a, b) {
+            console.log(a + b);
+        }
+
+        function makeLogging(f, log) {
+            return function(){
+                log.push([].slice.call(arguments));
+                return f.apply(this, arguments);
+            }
+        }
+
+        var log = [];
+        work = makeLogging(work, log);
+
+        work(1, 2); // 1, добавлено в log
+        work(4, 5); // 5, добавлено в log
+
+        for(var i=0; i<log.length; i++) {
+
+            console.log( 'Лог:' + log[i] ); // "Лог:1", затем "Лог:5"
+
+        }
+
+
+        function f(arg) {
+            return Math.random()*arg; // может быть любой функцией
+        }
+
+        function makeCaching(f) {
+            var cache = {};
+            return function(arg) {
+                if (arg in cache){
+                    return cache[arg];
+                };
+                return cache[arg] = f.apply(this, arguments);
+            };
+        }
+
+        f = makeCaching(f);
+
+        var a, b;
+
+        a = f(1);
+        b = f(1);
+        alert( a == b ); // true (значение закешировано)
+
+        b = f(2);
+        alert( a == b ); // false, другой аргумент => другое значение
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

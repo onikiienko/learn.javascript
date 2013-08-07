@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        var i = 0;
+        var timer = setTimeout(function tikTak(){
+            i++;
+            console.log(i);
+            if (i == 20) {
+                clearInterval(timer);
+            }else{
+                timer = setTimeout(tikTak, 100);
+            }
+        }, 100);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
