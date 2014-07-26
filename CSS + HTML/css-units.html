@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My first website</title>
+	<meta charset = "utf-8" />
+	<style type="text/css">
+		#sm {
+			font-size: 1cm;
+			}
+		div.pt{
+			font-size: 1pt;
+		}
+		.pc{
+			font-size: 1pc;
+		}
+		#vw{
+			font-size: 2vw
+		}
+		#vh{
+			font-size: 1vh
+		}
+		#vmin{
+			font-size: 2vmin
+		}
+	</style>
+</head>
+<body  style="font-size:100%">
+	<h1> Hello world </h1>
+
+	<p style="font-size: 1mm">
+		1mm(мм) = 3.8px
+	</p>
+	<span id="sm">1cm(см) = 38px</span>
+	<div class='pt'>1pt(пункт) = 4/3 px</div>
+	<div class='pc'>1pc(пика) = 16px</div>
+	<p><strong>Here</strong> is <em>my</em> text.</p>
+	<!-- vw, vh и vmin
+	Webkit также поддерживает единицы из черновика стандарта CSS Values and Units 3:
+
+	vw — 1% ширины окна
+	vh — 1% высоты окна
+	vmin — наименьшее из (vw, vh) -->
+	<p id='vw'>vw — 1% ширины окна</p>
+	<p id='vh'>vh — 1% высоты окна</p>
+	<p id='vmin'>vmin — наименьшее из (vw, vh)</p>
+
+	<p id="homework">
+		<div style="font-size:125%">Информация большим шрифтом</div>
+		<div style="font-size:70%">Информация мелким шрифтом</div>
+	</p>
+	<script>
+		function changeSize(wieght){
+			var el = document.body;
+			el.style.fontSize = parseInt(el.style.fontSize) * wieght + '%';
+		};
+	</script>
+	<div>
+		<input id="makeBigger" type="button" value="makeBigger" onclick='changeSize(1.25)'/>
+		<input id="makeSmaller" type="button" value="makeSmaller" onclick='changeSize(0.8)'/>
+	</div>
+</body>
+</html>
