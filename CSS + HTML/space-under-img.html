@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>space-under-img</title>
+</head>
+<body>
+<!-- Пробелы под картинками появляются, чтобы оставить место под «хвосты» букв в строке. Строка «подразумевается», т.к. display:inline.
+Можно избежать пробела, если изменить display, например, на block.
+Альтернатива: vertical-align:top (или bottom), но для маленьких изображений может понадобиться уменьшить line-height, чтобы контейнер не оставлял место под строку. -->
+<style> img {display: block;} </style>
+<table>
+  <tr>
+  <td style="border:1px red solid; display: block; vertical-aligin: middle;">
+    <img src="square.png">
+  </td>
+  </tr>
+</table>
+
+<style> 
+  td { line-height: 1px }
+  img { vertical-align: top }
+</style>
+<table>
+  <tr>
+  <td style="border:1px red solid">
+    <img src="square.png" style="height:10px">
+  </td>
+  </tr>
+</table>
+
+</body>
+</html>
