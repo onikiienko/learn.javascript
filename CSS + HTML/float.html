@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>float</title>
+	  <meta charset="utf-8">
+</head>
+<body>
+<!-- float: left | right | none | inherit;
+
+При применении этого свойства происходит следующее:
+
+Элемент позиционируется как обычно, а затем вынимается из документа потока и сдвигается влево (для left) или вправо (для right) до того как коснётся либо границы родителя, либо другого элемента с float.
+Если пространства по горизонтали не хватает для того, чтобы вместить элемент, то он сдвигается вниз до тех пор, пока не начнёт помещаться.
+Другие непозиционированные блочные элементы без float ведут себя так, как будто элемента с float нет, так как он убран из потока.
+Строки (inline-элементы), напротив, «знают» о float и обтекают элемент по сторонам. -->
+<!--  <style>
+
+.left-picture {
+  float: left;
+
+  /* рамочка и центрирование */
+  margin: 0 10px 5px 0;
+  text-align: center;
+  border: 1px solid black;
+}
+
+p {
+  background: #aef;
+  border: 1px solid red;
+}
+
+  </style>
+<img src="winnie-mult.jpg" width="200" height="150" style="float:right;opacity:0.8">
+
+
+<p>Ви́нни-Пу́х (англ. Winnie-the-Pooh) — плюшевый мишка, персонаж повестей и стихов Алана Александра Милна (цикл не имеет общего названия и обычно тоже называется «Винни-Пух», по первой книге). Один из самых известных героев детской литературы XX века.</p>
+
+<p>В 1960-е—1970-е годы, благодаря пересказу Бориса Заходера «Винни-Пух и все-все-все», а затем и фильмам студии «Союзмультфильм», где мишку озвучивал Евгений Леонов, Винни-Пух стал очень популярен и в Советском Союзе.</p>
+
+<img src="winnie-mult.jpg" style="position:absolute;right:0;opacity: 0.7" width="200" height="150">
+
+<p>Ви́нни-Пу́х (англ. Winnie-the-Pooh) — плюшевый мишка, персонаж повестей и стихов Алана Александра Милна (цикл не имеет общего названия и обычно тоже называется «Винни-Пух», по первой книге). Один из самых известных героев детской литературы XX века.</p>
+
+<p>В 1960-е—1970-е годы, благодаря пересказу Бориса Заходера «Винни-Пух и все-все-все», а затем и фильмам студии «Союзмультфильм», где мишку озвучивал Евгений Леонов, Винни-Пух стал очень популярен и в Советском Союзе.</p> -->
+
+
+  <style>
+    /* ваш стиль */
+    .icon {
+    	float: left;
+    	width: 16px;
+    	height: 16px;
+    }
+    .open>.icon {
+    	cursor: pointer;
+    	background-image: url('plus.gif');
+
+    }    
+    .closed>.icon {
+    	cursor: pointer;
+    	background-image: url('minus.gif');
+
+    }
+    .leaf>.icon {
+    	cursor: text;
+    	background-image: url('article.gif');
+
+    }
+    li {
+    	list-style: none;
+    }
+    ul {
+    	line-height: 1.2em
+    }
+  </style>
+<!-- картинки для узлов -->
+<!-- <img src="minus.gif" width="16" height="16">
+<img src="plus.gif" width="16" height="16">
+<img src="article.gif" width="16" height="16"> -->
+
+<!-- 
+<ul>
+<li class="open">
+  <div class="icon"></div>
+  <div class="text">Раздел 1<br>(занимает две строки)</div>
+  <ul>
+  <li class="closed">
+    <div class="icon"></div>
+    <div class="text">Раздел 1.1</div>
+  </li>
+  <li class="leaf">
+    <div class="icon"></div>
+    <div class="text">Страница 1.2<br>(занимает две строки)</div>
+  </li>
+  </ul>
+</li>
+<li class="closed">
+  <div class="icon"></div>
+  <div class="text">Раздел 2<br>(занимает две строки)</div>
+</li>
+</ul> -->
+
+
+<!-- 
+  <style>
+    .nav {
+      height: 40px;
+      width: 80%;
+      /*margin: auto;*/
+    }
+    li {
+      overflow: auto;
+    	display: inline;
+    	margin-right: 1em;
+    }
+    ul {
+    	/*border: 1px solid black;*/
+    	margin-left: 20px;
+    	float: left;
+    	display: inline;
+    }
+    img {
+    	margin-left: 40px;
+    	/*border: 1px solid black;*/
+    	float: left;
+    	display: inline;
+    }
+
+  </style>
+
+Текст Сверху
+
+<div class="nav">
+  <img src="arrow-left.jpg" class="left" width="40" height="40">
+  <ul class="pages">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+
+  <img src="arrow-right.jpg" class="right" width="40" height="40">
+  <div style ="clear:both"></div>
+</div>
+<div style="clear:both"></div>
+Текст Снизу -->
+<style>
+  .left {
+    float:left; 
+    width:30%; 
+    background: #aef;
+  }
+
+  .right {
+    margin-left: 31%;
+    background: tan;
+    border-left: 3px solid black; 
+  }
+</style>
+
+<div class="left">
+ Левая<br>Колонка
+</div>
+<div class="right">
+ Правая<br>Колонка<br>...
+</div>
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>
